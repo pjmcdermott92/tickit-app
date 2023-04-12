@@ -1,0 +1,98 @@
+:root {
+	@each $color, $value in $colors {
+		--color-#{$color}: #{$value};
+	}
+
+	@each $color, $value in $grays {
+		--color-gray-#{$color}: #{$value};
+	}
+
+	@each $color, $value in $theme-colors {
+		--color-#{$color}: #{$value};
+	}
+
+	@each $size, $value in $sizes {
+		--size-#{$size}: #{$value};
+	}
+
+	--font-primary: #{$font-primary};
+	--base-font: #{$base-font-size};
+	--base-font-weight: #{$base-font-weight};
+	--body-line-height: #{$body-line-height};
+	--base-shadow: #{$base-shadow};
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: $light;
+	color: $dark;
+	line-height: $body-line-height;
+	font: {
+		size: $base-font-size;
+		weight: $base-font-weight;
+		family: $font-primary;
+	}
+}
+
+%heading {
+	margin-top: 0;
+	margin-bottom: $heading-bottom-margin;
+	font: {
+		family: $heading-font-family;
+		style: $heading-font-style;
+		weight: $heading-font-weight;
+	}
+	line-height: $heading-line-height;
+	color: var(--heading-color, inherit);
+}
+
+@for $i from 1 through 6 {
+	h#{$i} {
+		@extend %heading;
+		font-size: $base-font-size + $heading-font-scale * (6 - $i);
+	}
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: $paragraph-margin-bottom;
+}
+
+ol,
+ul {
+	padding-left: 2rem;
+}
+
+ol,
+ul,
+dl {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+	margin-bottom: 0;
+}
+
+a {
+	color: $cyan;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
