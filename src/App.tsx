@@ -1,11 +1,13 @@
+import { Routes, Route } from 'react-router-dom';
+import AppLayout from './layouts/AppLayout/AppLayout';
 
-function App() {
+export default function App() {
 
   return (
-    <div className="App">
-      Hello, world!
-    </div>
+    <Routes>
+      <Route path='/' element={<AppLayout />}>
+        <Route index element={<p>Hello, World!</p>} />
+      </Route>
+    </Routes>
   )
 }
-
-export default App
