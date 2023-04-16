@@ -9,6 +9,10 @@
     white-space: nowrap;
     overflow-x: hidden;
     transition: 250ms ease-in-out;
+
+    .toggle {
+        display: none;
+    }
 }
 
 .brand {
@@ -106,5 +110,40 @@
         &:hover { 
             background-color: rgba(0,0,0,0.15);
         }
+    }
+}
+
+@media(max-width: 767px) {
+    .Sidebar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        max-width: 325px;
+
+        .toggle {
+            position: absolute;
+            top: .75rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font: inherit;
+            font-size: 1.8rem;
+            background-color: transparent;
+            color: var(--color-gray-700);
+            border: none;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: rgba(0,0,0,0.15);
+            }
+        }
+    }
+
+    .expanded {
+        width: 100%;
     }
 }
